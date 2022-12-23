@@ -1,12 +1,16 @@
 package com.example.agenda;
 
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -27,8 +31,8 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Contact contact = contacts.get(position);
-        holder.textView.setText(contact.getName());
-        holder.imageView.setImageBitmap(contact.getProfilePicture());
+        holder.tvNombre.setText(contact.getNombre());
+        holder.ivPerfil.setImageBitmap(contact.getImg());
     }
 
     @Override
@@ -38,11 +42,14 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
 
     static class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvNombre,tvEmail,tvTel;
+        ImageView ivPerfil;
 
         ViewHolder(View view) {
             super(view);
-            textView = view.findViewById(R.id.);
-            imageView = view.findViewById(R.id.image_view);
+            tvNombre = (TextView) view.findViewById(R.id.textViewNombre);
+            tvEmail = (TextView) view.findViewById(R.id.textViewEmail);
+            tvTel = (TextView) view.findViewById(R.id.textViewTel);
+            ivPerfil = (ImageView) view.findViewById(R.id.imageViewPerfil);
         }
     }
 }
