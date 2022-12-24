@@ -12,13 +12,15 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ContactAdapter adapter;
-    Button bAdd;
+    FloatingActionButton bAdd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
         bAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getAplicationContext(),secon)
+                Intent intent = new Intent(getApplicationContext(),SecondActivity.class);
+                intent.putExtra("accion","add");
+                startActivity(intent);
             }
         });
     }
